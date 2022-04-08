@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace _219_Pogosyan
 {
@@ -23,6 +24,38 @@ namespace _219_Pogosyan
         public MainWindow()
         {
             InitializeComponent();
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += TimerTick;
+            timer.Start();
+        }
+        public void TimerTick(object sender, EventArgs e)
+        {
+            DataTimeNow.Text = DateTime.Now.ToString("dd MMMM yyyy HH:mm:ss");
+        }
+        public void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoBack) MainFrame.GoBack();
+        }
+        private void Button_MouseEnter_1(object sender, MouseEventArgs e)
+        {
+            //popup1.IsOpen = true;
+        }
+        private void MainFrame_OnNavigated(object sender, NavigationEventArgs e)
+        {
+            if (!(e.Content is Page page))
+                return;
+            this.Title = $"ProjectByKvashilavaAndPogosyan - {page.Title}";
+
+            if (page is Pages.Page1) Button_Back.Visibility = Visibility.Hidden;
+            else Button_Back.Visibility = Visibility.Visible;
+        }
+        private void WindowsClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Вы уверены?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
