@@ -39,7 +39,7 @@ namespace _219_Pogosyan
         }
         private void Button_MouseEnter_1(object sender, MouseEventArgs e)
         {
-            //popup1.IsOpen = true;
+        
         }
         private void MainFrame_OnNavigated(object sender, NavigationEventArgs e)
         {

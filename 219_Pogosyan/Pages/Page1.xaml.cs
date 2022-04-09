@@ -34,22 +34,10 @@ namespace _219_Pogosyan.Pages
         {
 
         }
-        private void Button_MouseEnter_1(object sender, MouseEventArgs e)
+        private void ButtonMouseEnter(object sender, MouseEventArgs e)
         {
             //popup1.IsOpen = true;
      
-      }
-        private void Button_MouseEnter_2(object sender, MouseEventArgs e)
-        {
-            //popup1.IsOpen = true;
-        }
-        private void Button_MouseEnter_3(object sender, MouseEventArgs e)
-        {
-            //popup1.IsOpen = true;
-        }
-        private void Button_MouseEnter_4(object sender, MouseEventArgs e)
-        {
-            //popup1.IsOpen = true;
         }
         private void TextBoxLogin_Changed(object sender, RoutedEventArgs e)
         {
@@ -61,27 +49,30 @@ namespace _219_Pogosyan.Pages
         }
         private void ButtonEnter_OnClick(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextBoxLogin.Text) || string.IsNullOrEmpty(PasswordBox.Password))
+            if (string.IsNullOrEmpty(TextBoxLogin.Text) || string.IsNullOrEmpty(PasswordBox_Password.Password))
             {
                 
-                MessageBox.Show("Введите логин или пароль");
+                MessageBox.Show("Введите логин или пароль!");
                 return;
             }
             using (var db = new Entities())
             {
-                var user = db.User .AsNoTracking() .FirstOrDefault( u => u.Login == TextBoxLogin1.Text && u.Password == PasswordBox.Password);
+                var user = db.User .AsNoTracking() .FirstOrDefault( u => u.Login == TextBoxLogin.Text && u.Password == PasswordBox_Password.Password);
                 if (user == null)
                 {
-                    MessageBox.Show("Пользователь с такими данными не найден");
+                    MessageBox.Show("Пользователь с такими данными не найден!");
                     return;
                 }
-                MessageBox.Show("Пользователь успешно найден");
+                MessageBox.Show("Пользователь успешно найден!");
 
                 switch (user.Role)
                 {
                     case "Ученик":
                         NavigationService?.Navigate(new Student());
                             break;
+                    case "Учитель":
+                        NavigationService?.Navigate(new Teacher());
+                        break;
                     case "Библиотекарь":
                         NavigationService?.Navigate(new Lybrarian());
                             break;

@@ -13,63 +13,70 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox x:Name ="TextBoxLogin" TextChanged="TextBox_TextChanged" Grid.RowSpan="4" Grid.ColumnSpan="4" Margin="0,0,-2,1.6"></TextBox>
-        <PasswordBox x:Name ="PasswordBox1" 
-                     HorizontalAlignment="Right" 
-                     VerticalAlignment="Bottom" 
-                     Height="37" 
-                     Width="200" 
-                     Margin="0,0,120,25" 
-                     Grid.Row="1" 
-                     Grid.Column="1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name ="TextBox" 
+                 TextChanged="TextBox_TextChanged" 
+                 Grid.RowSpan="3" 
+                 Grid.ColumnSpan="3" Margin="0,0,0,0"
+                 >
+        </TextBox>
         <Label Content ="Логин" 
-               HorizontalAlignment="Right" 
-               Margin="0,0,124,30" 
-               VerticalAlignment="Bottom" 
+               Margin="235,0,235,70"
                Height="37" 
-               Width="54" 
-               Grid.Column="1"
-               Grid.RowSpan="2"/>
-
-
-        <PasswordBox x:Name ="PasswordBox" 
-                     HorizontalAlignment="Right" 
-                     Margin="0,0,280,298.6" 
+               VerticalAlignment="Bottom" 
+               Grid.ColumnSpan="2" Grid.RowSpan="2" />
+        <PasswordBox x:Name ="PasswordBox_Password" 
+                     Background="Transparent"
+                     Margin="30,0,280,20" 
+                     Grid.Column="1" 
+                     Grid.Row="1" 
+                     Grid.ColumnSpan="2"
+                     Height="30" 
                      VerticalAlignment="Bottom" 
-                     Height="37" 
-                     Width="214" 
-                     Grid.Row="3" 
-                     Grid.Column="3"
-                     ToolTip="Введите логин или почту"/>
+                     ToolTip="Введите пароль"/>
         <Label Content ="Пароль" 
-               HorizontalAlignment="Right" 
-               Margin="0,0,125,70" 
+               Margin="235,0,235,20" 
                VerticalAlignment="Bottom" 
-               Height="37" 
-               Width="54" 
-               Grid.Column="1" 
-               Grid.RowSpan="3"/>
+               Height="35" 
+               Grid.Row="1" 
+               Grid.ColumnSpan="2"/>
         <Button x:Name ="ButtonEnter" 
-                Click="ButtonEnter_OnClick" Content ="Вход" MouseEnter="Button_MouseEnter_2" 
-                HorizontalAlignment="Left" 
-                Margin="95,1,0,0" 
-                VerticalAlignment="Top" 
-                Width="214" Height="38" 
-                Grid.Row="4" 
-                Grid.ColumnSpan="2" 
-                Grid.Column="1" />
-        <Button MouseEnter="Button_MouseEnter_1" Content ="Регистрация" HorizontalAlignment="Left" Margin="95,50,0,0" VerticalAlignment="Top" Width="214" Height="38" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="1"/>
-
-
-        <TextBlock Text="Логин или почта" Foreground="Gray" Name="txtHintLogin" Margin="1,2,0,0" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"/>
-        <TextBox x:Name="TextBoxLogin1" Margin="-1,1,0,0" Background="Transparent" Text="" VerticalAlignment="Top" Width="120" Grid.Row="1" HorizontalAlignment="Left" TextChanged="TextBox_TextChanged"/>
+                Click="ButtonEnter_OnClick" Content ="Вход"
+                Margin="20,0,20,70" Height="38" 
+                Grid.Row="2" 
+                Grid.Column="1"
+                ToolTip="Войти" VerticalAlignment="Bottom"/>
+        <Button MouseEnter="ButtonMouseEnter" 
+                Content ="Регистрация" 
+                Margin="20,0,20,20" 
+                VerticalAlignment="Bottom" 
+                Height="38" 
+                Grid.Row="2"
+                ToolTip="Зарегистрироваться" Grid.Column="1"/>
+        <TextBlock Text="Логин или почта"  
+                   Foreground="Gray" 
+                   Name="txtHintLogin" 
+                   Margin="30,0,280,70" 
+                   VerticalAlignment="Bottom" 
+                   Grid.Column="1" 
+                   Grid.ColumnSpan="2" 
+                   Height="30" 
+                   Grid.RowSpan="2"/>
+        <TextBox x:Name="TextBoxLogin" 
+                 Margin="30,0,280,70" 
+                 Background="Transparent" 
+                 Text="" 
+                 TextChanged="TextBox_TextChanged" 
+                 Grid.Column="1" 
+                 Grid.ColumnSpan="2"
+                 Height="30" 
+                 VerticalAlignment="Bottom" 
+                 Grid.RowSpan="2"
+                 ToolTip="Введите логин или почту"/>
     </Grid>
 </Page>
