@@ -15,10 +15,23 @@
         </Grid.RowDefinitions>
         <Frame x:Name="MainFrame"
                NavigationUIVisibility="Hidden"
-               Grid.Row="1"/>
-        <TextBlock x:Name="DataTimeNow" Margin="585,5,10,10" Grid.Row="2"/>
-        <Button x:Name="Button_Back" Content="Назад" MouseEnter="Button_MouseEnter_1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="Button_Click" Grid.RowSpan="2"/>
-        <Frame x:Name="MainFrame_AuthPage" Source="Pages/Page1.xaml" Grid.Row="1" Navigated="MainFrame_OnNavigated"/>
+               Grid.Row="1"
+               Source="Pages/Page1.xaml"/>
+        <TextBlock x:Name="DataTimeNow" 
+                   Margin="500,5,0,5" 
+                   FontSize="20"
+                   Grid.Row="3"/>
+        <Button x:Name="Button_Back" 
+                Content="Назад" 
+                HorizontalAlignment="Left" 
+                Width="75" 
+                Margin="0,0,0,0" 
+                FontSize="20"
+                Click="Button_Click"/>
+        <Frame x:Name="MainFrame_AuthPage" 
+               Source="Pages/Page1.xaml" 
+               Grid.Row="1" 
+               Navigated="MainFrame_OnNavigated"/>
         <!--<Button Click="ButtonEnter_OnClick" Content="Вход" Grid.Column="2" Margin="0,60,0,0" Grid.Row="1" VerticalAlignment="Top" Height="20"></Button>
         <Button Content="Регистрация" Grid.Column="2" Margin="0,85,0,0" Grid.Row="1" VerticalAlignment="Top" Height="20"></Button>-->
         <!--<Popup x:Name="popup1" StaysOpen="False" Placement="Mouse" MaxWidth="180"

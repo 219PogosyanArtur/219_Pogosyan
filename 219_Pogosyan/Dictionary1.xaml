@@ -1,13 +1,31 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-        <Style
-            TargetType="Button">
-            <Setter  Property="Height" Value="35"/>
-            <Setter Property="Padding" Value="8"/>
-            <Setter Property="Margin" Value="12"/>
-            <Setter Property="FontFamily" Value="Tahoma"/>
-            <Setter Property="FontSize" Value="12pt"/>
-            <Setter Property="Background" Value="Gray"/>
-            <Setter Property="Foreground" Value="Black"/>
-        </Style>
+    <Style TargetType="Grid">
+        <Setter Property="Background" Value = "#E0A9AF"/>
+    </Style>
+
+    <Style TargetType="Frame">
+        <Setter Property="Background" Value = "#B5D5CA"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="FontFamily" Value="Tahoma"/>
+        <Setter Property="FontSize" Value="12pt"/>
+        <Setter Property="Background" Value = "#D1EEFC"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="FontFamily" Value="Tahoma"/>
+        <Setter Property="FontSize" Value="12pt"/>
+        <Setter Property="Background" Value = "#FFFCD6"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <Style TargetType="ComboBox">
+        <Setter Property="FontFamily" Value="Tahoma"/>
+        <Setter Property="FontSize" Value="12pt"/>
+        <Setter Property="Background" Value = "#FFFCD6"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
 </ResourceDictionary>

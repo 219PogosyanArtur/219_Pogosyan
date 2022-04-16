@@ -37,10 +37,6 @@ namespace _219_Pogosyan
         {
             if (MainFrame.CanGoBack) MainFrame.GoBack();
         }
-        private void Button_MouseEnter_1(object sender, MouseEventArgs e)
-        {
-        
-        }
         private void MainFrame_OnNavigated(object sender, NavigationEventArgs e)
         {
             if (!(e.Content is Page page))

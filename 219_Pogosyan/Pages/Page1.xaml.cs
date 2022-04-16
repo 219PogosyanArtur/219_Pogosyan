@@ -39,7 +39,7 @@ namespace _219_Pogosyan.Pages
             //popup1.IsOpen = true;
      
         }
-        private void TextBoxLogin_Changed(object sender, RoutedEventArgs e)
+        private void TextBoxLogin_TextChanged(object sender, RoutedEventArgs e)
         {
             txtHintLogin.Visibility = Visibility.Visible;
             if (TextBoxLogin.Text.Length > 0)
@@ -47,9 +47,17 @@ namespace _219_Pogosyan.Pages
                 txtHintLogin.Visibility = Visibility.Hidden;
             }
         }
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            txtHintPassword.Visibility = Visibility.Visible;
+            if (PasswordBox.Password.Length > 0)
+            {
+                txtHintPassword.Visibility = Visibility.Hidden;
+            }
+        }
         private void ButtonEnter_OnClick(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextBoxLogin.Text) || string.IsNullOrEmpty(PasswordBox_Password.Password))
+            if (string.IsNullOrEmpty(TextBoxLogin.Text) || string.IsNullOrEmpty(PasswordBox.Password))
             {
                 
                 MessageBox.Show("Введите логин или пароль!");
@@ -57,7 +65,7 @@ namespace _219_Pogosyan.Pages
             }
             using (var db = new Entities())
             {
-                var user = db.User .AsNoTracking() .FirstOrDefault( u => u.Login == TextBoxLogin.Text && u.Password == PasswordBox_Password.Password);
+                var user = db.User .AsNoTracking() .FirstOrDefault( u => u.Login == TextBoxLogin.Text && u.Password == PasswordBox.Password);
                 if (user == null)
                 {
                     MessageBox.Show("Пользователь с такими данными не найден!");
