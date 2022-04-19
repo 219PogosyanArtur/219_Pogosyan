@@ -1,0 +1,121 @@
+﻿<Page x:Class="_219_Pogosyan.Registration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_219_Pogosyan"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Registration">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Frame x:Name="BeautifulFrame" 
+               Grid.ColumnSpan="4" 
+               Grid.RowSpan="8"/>
+
+        <Label Content="ФИО" 
+               Grid.Column="1" 
+               Grid.Row="1"/>
+        <TextBlock x:Name="Reg_txtHintFIO" 
+                   Text="Полное имя" 
+                   Grid.Column="2" 
+                   Grid.Row="1" 
+                   Foreground="Gray"   
+                   FontSize="20"/>
+        <TextBox x:Name="Reg_TextBoxFIO" 
+                 Text="" 
+                 Grid.Column="2" 
+                 Grid.Row="1"  
+                 Background="Transparent" 
+                 FontSize="25" 
+                 TextWrapping="Wrap" 
+                 TextChanged="Reg_TextBoxFIO_TextChanged"/>
+
+        <Label Content="Роль" 
+               Grid.Column="1" 
+               Grid.Row="2" />
+        <ComboBox x:Name="CmbRole" 
+                  Grid.Column="2" 
+                  Grid.Row="2"  >
+            <TextBlock>Учитель</TextBlock>
+            <TextBlock>Ученик</TextBlock>
+        </ComboBox>
+
+        <Label Content="Логин" 
+               Grid.Column="1" 
+               Grid.Row="3"/>
+        <TextBlock x:Name="Reg_txtHintLogin" 
+                   Text="Логин или почта" 
+                   Grid.Column="2" 
+                   Grid.Row="3" 
+                   Foreground="Gray"   
+                   FontSize="20"/>
+        <TextBox x:Name="Reg_TextBoxLogin" 
+                 Text="" 
+                 Grid.Column="2" 
+                 Grid.Row="3" 
+                 Background="Transparent" 
+                 FontSize="25" 
+                 TextWrapping="Wrap" 
+                 TextChanged="Reg_TextBoxLogin_TextChanged"/>
+
+        <Label Content="Пароль" 
+               Grid.Column="1" 
+               Grid.Row="4"/>
+        <TextBlock x:Name="Reg_txtHintPassword" 
+                   Text="Пароль" 
+                   Grid.Column="2" 
+                   Grid.Row="4" 
+                   Foreground="Gray" 
+                   FontSize="20"/>
+        <PasswordBox x:Name="Reg_PasswordBox" 
+                     Grid.Column="2" 
+                     Grid.Row="4" 
+                     Background="Transparent" 
+                     FontSize="25" 
+                     PasswordChanged="Reg_PasswordBox_PasswordChanged"/>
+
+        <Label Content="Подтвердить пароль" 
+               Grid.Column="1" 
+               Grid.Row="5"/>
+        <TextBlock x:Name="Reg_txtHintRepeatPassword" 
+                   Text="Подтвердить пароль" 
+                   Grid.Column="2" 
+                   Grid.Row="5" 
+                   Foreground="Gray" 
+                   FontSize="20"/>
+        <PasswordBox x:Name="Reg_RepeatPasswordBox" 
+                     Grid.Column="2" 
+                     Grid.Row="5" 
+                     Background="Transparent" 
+                     FontSize="25" 
+                     PasswordChanged="Reg_RepeatPasswordBox_PasswordChanged"/>
+
+        <Button Content="Enter" 
+                Grid.Column="2" 
+                Grid.Row="6" 
+                Click="Button_Click_1"/>
+
+        <Button Content="Cancel" 
+                Grid.Column="1" 
+                Grid.Row="6" 
+                Click="Button_Click"/>
+    </Grid>
+</Page>

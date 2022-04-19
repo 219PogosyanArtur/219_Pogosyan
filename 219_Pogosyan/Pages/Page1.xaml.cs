@@ -39,7 +39,7 @@ namespace _219_Pogosyan.Pages
             //popup1.IsOpen = true;
      
         }
-        private void TextBoxLogin_TextChanged(object sender, RoutedEventArgs e)
+        private void TextBoxLogin_TextChanged(object sender, TextChangedEventArgs e)
         {
             txtHintLogin.Visibility = Visibility.Visible;
             if (TextBoxLogin.Text.Length > 0)
