@@ -32,7 +32,8 @@
 
         <Label Content="ФИО" 
                Grid.Column="1" 
-               Grid.Row="1"/>
+               Grid.Row="1"
+               ToolTip="Фамилия Имя Отчество"/>
         <TextBlock x:Name="Reg_txtHintFIO" 
                    Text="Полное имя" 
                    Grid.Column="2" 
@@ -46,21 +47,25 @@
                  Background="Transparent" 
                  FontSize="25" 
                  TextWrapping="Wrap" 
+                 ToolTip="Фамилия Имя Отчество"
                  TextChanged="Reg_TextBoxFIO_TextChanged"/>
 
         <Label Content="Роль" 
                Grid.Column="1" 
-               Grid.Row="2" />
+               Grid.Row="2" 
+               ToolTip="Ваша роль"/>
         <ComboBox x:Name="CmbRole" 
                   Grid.Column="2" 
-                  Grid.Row="2"  >
+                  Grid.Row="2" 
+                  ToolTip="Выбрать роль">
             <TextBlock>Учитель</TextBlock>
             <TextBlock>Ученик</TextBlock>
         </ComboBox>
 
         <Label Content="Логин" 
                Grid.Column="1" 
-               Grid.Row="3"/>
+               Grid.Row="3"
+               ToolTip="Логин"/>
         <TextBlock x:Name="Reg_txtHintLogin" 
                    Text="Логин или почта" 
                    Grid.Column="2" 
@@ -74,11 +79,13 @@
                  Background="Transparent" 
                  FontSize="25" 
                  TextWrapping="Wrap" 
+                 ToolTip="Логин или почта"
                  TextChanged="Reg_TextBoxLogin_TextChanged"/>
 
         <Label Content="Пароль" 
                Grid.Column="1" 
-               Grid.Row="4"/>
+               Grid.Row="4"
+               ToolTip="Пароль"/>
         <TextBlock x:Name="Reg_txtHintPassword" 
                    Text="Пароль" 
                    Grid.Column="2" 
@@ -90,11 +97,13 @@
                      Grid.Row="4" 
                      Background="Transparent" 
                      FontSize="25" 
+                     ToolTip="Пароль"
                      PasswordChanged="Reg_PasswordBox_PasswordChanged"/>
 
         <Label Content="Подтвердить пароль" 
                Grid.Column="1" 
-               Grid.Row="5"/>
+               Grid.Row="5"
+               ToolTip="Подтвердить пароль"/>
         <TextBlock x:Name="Reg_txtHintRepeatPassword" 
                    Text="Подтвердить пароль" 
                    Grid.Column="2" 
@@ -106,16 +115,19 @@
                      Grid.Row="5" 
                      Background="Transparent" 
                      FontSize="25" 
+                     ToolTip="Подтвердить пароль"
                      PasswordChanged="Reg_RepeatPasswordBox_PasswordChanged"/>
 
-        <Button Content="Enter" 
+        <Button Content="Зарегистрироваться" 
                 Grid.Column="2" 
                 Grid.Row="6" 
+                ToolTip="Зарегистрироваться"
                 Click="Button_Click_1"/>
 
-        <Button Content="Cancel" 
+        <Button Content="Выход" 
                 Grid.Column="1" 
                 Grid.Row="6" 
+                ToolTip="Выход"
                 Click="Button_Click"/>
     </Grid>
 </Page>

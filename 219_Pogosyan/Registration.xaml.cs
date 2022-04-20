@@ -66,13 +66,13 @@ namespace _219_Pogosyan
             NavigationService.Navigate(new Registration());
         }
 
-        public static string GetHash(string password)
-        {
-            using (var hash = SHA1.Create())
-            {
-                return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(password)).Select(x => x.ToString("X2")));
-            }
-        }
+        //public static string GetHash(string password)
+        //{
+        //    using (var hash = SHA1.Create())
+        //    {
+        //        return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(password)).Select(x => x.ToString("X2")));
+        //    }
+        //}
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -83,18 +83,18 @@ namespace _219_Pogosyan
                 test++;
             }
 
-            using (var db_test = new Entities())
-            {
-                var user = db_test.User.AsNoTracking().FirstOrDefault(u => u.Login == Reg_TextBoxLogin.Text);
+            //using (var db_test = new Entities())
+            //{
+            //    var user = db_test.User.AsNoTracking().FirstOrDefault(u => u.Login == Reg_TextBoxLogin.Text);
 
-                if (user != null)
-                {
-                    MessageBox.Show("there is already such a user");
-                    test++;
-                    return;
-                }
+            //    if (user != null)
+            //    {
+            //        MessageBox.Show("there is already such a user");
+            //        test++;
+            //        return;
+            //    }
 
-            }
+            //}
 
             if (Reg_PasswordBox.Password.Length >= 6)
             {
@@ -145,19 +145,19 @@ namespace _219_Pogosyan
                 test++;
             }
 
-            if (test == 0)
-            {
-                Entities db = new Entities();
-                User userObject = new User
-                {
-                    Full_name = Reg_TextBoxFIO.Text,
-                    Login = Reg_TextBoxLogin.Text,
-                    Password = GetHash(Reg_PasswordBox.Password),
-                    Role = CmbRole.Text
-                };
-                db.User.Add(userObject);
-                db.SaveChanges();
-            }
+            //if (test == 0)
+            //{
+            //    Entities db = new Entities();
+            //    User userObject = new User
+            //    {
+            //        Full_name = Reg_TextBoxFIO.Text,
+            //        Login = Reg_TextBoxLogin.Text,
+            //        Password = GetHash(Reg_PasswordBox.Password),
+            //        Role = CmbRole.Text
+            //    };
+            //    db.User.Add(userObject);
+            //    db.SaveChanges();
+            //}
         }
     }
 }
