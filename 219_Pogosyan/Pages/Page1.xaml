@@ -86,6 +86,6 @@
                 FontSize="20"
                 Grid.Row="3"
                 Grid.Column="2"
-                ToolTip="Зарегистрироваться"/>
+                ToolTip="Зарегистрироваться" Click="Button_Click_1"/>
     </Grid>
 </Page>

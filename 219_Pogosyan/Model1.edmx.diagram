@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="63a49dc674b447a887a19fe85c205c03" Name="Diagram1">
-        <EntityTypeShape EntityType="TRModel.Area_Of_Expertise" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TRModel.Books" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TRModel.Instances" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="TRModel.Issuance_of_books" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TRModel.Student" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TRModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TRModel.User" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <AssociationConnector Association="TRModel.FK_Books_Area_Of_Expertise" ManuallyRouted="false" />
-        <AssociationConnector Association="TRModel.FK_Экземпляры_Книги" ManuallyRouted="false" />
-        <AssociationConnector Association="TRModel.FK_Issuance_of_books_Instances" ManuallyRouted="false" />
-        <AssociationConnector Association="TRModel.FK_Ученик_Экземпляры" ManuallyRouted="false" />
+      <Diagram DiagramId="1d1df66229504801b65b0845de69d376" Name="Diagram1">
+        <EntityTypeShape EntityType="TRPOLIBRARYModel.Area_Of_Expertise" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRPOLIBRARYModel.Books" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRPOLIBRARYModel.Instances" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRPOLIBRARYModel.Issuance_of_books" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRPOLIBRARYModel.Student" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRPOLIBRARYModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRPOLIBRARYModel.User" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="TRPOLIBRARYModel.FK_Books_Area_Of_Expertise" ManuallyRouted="false" />
+        <AssociationConnector Association="TRPOLIBRARYModel.FK_Экземпляры_Книги" ManuallyRouted="false" />
+        <AssociationConnector Association="TRPOLIBRARYModel.FK_Issuance_of_books_Instances" ManuallyRouted="false" />
+        <AssociationConnector Association="TRPOLIBRARYModel.FK_Ученик_Экземпляры" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

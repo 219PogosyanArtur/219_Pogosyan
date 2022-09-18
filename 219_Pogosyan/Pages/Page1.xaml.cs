@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace _219_Pogosyan.Pages
 {
     /// <summary>
@@ -57,19 +58,24 @@ namespace _219_Pogosyan.Pages
         }
         private void ButtonEnter_OnClick(object sender, RoutedEventArgs e)
         {
+            Auth(TextBoxLogin.Text, PasswordBox.Password);
+        }
+        public bool Auth(string login, string password)
+        {
             if (string.IsNullOrEmpty(TextBoxLogin.Text) || string.IsNullOrEmpty(PasswordBox.Password))
             {
                 
                 MessageBox.Show("Введите логин или пароль!");
-                return;
+                return false;
             }
-            using (var db = new Entities())
+            using (var db = new TRPOLIBRARYEntities1())
             {
-                var user = db.User .AsNoTracking() .FirstOrDefault( u => u.Login == TextBoxLogin.Text && u.Password == PasswordBox.Password);
+                string parol = hashirovanie.GetHash(PasswordBox.Password);
+                var user = db.User .AsNoTracking() .FirstOrDefault( u => u.Login == TextBoxLogin.Text && u.Password == parol);
                 if (user == null)
                 {
                     MessageBox.Show("Пользователь с такими данными не найден!");
-                    return;
+                    return false;
                 }
                 MessageBox.Show("Пользователь успешно найден!");
 
@@ -85,7 +91,13 @@ namespace _219_Pogosyan.Pages
                         NavigationService?.Navigate(new Lybrarian());
                             break;
                 }
+                return true;
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Registration());
         }
     }
 }

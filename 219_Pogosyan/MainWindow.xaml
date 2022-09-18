@@ -31,7 +31,12 @@
         <Frame x:Name="MainFrame_AuthPage" 
                Source="Pages/Page1.xaml" 
                Grid.Row="1" 
-               Navigated="MainFrame_OnNavigated"/>
+               Navigated="MainFrame_OnNavigated" Height="330" Margin="0,0,-0.4,0.2" VerticalAlignment="Bottom"/>
+        <StackPanel >
+            <Button x:Name="Button3" Content="Export" Width="75" Grid.Row="0" Click="Button3_Click"/>
+            <Button x:Name="Button4" Content="Import" Width="75" Grid.Row="0" Click="Button4_Click"/>
+        </StackPanel>
+
         <!--<Button Click="ButtonEnter_OnClick" Content="Вход" Grid.Column="2" Margin="0,60,0,0" Grid.Row="1" VerticalAlignment="Top" Height="20"></Button>
         <Button Content="Регистрация" Grid.Column="2" Margin="0,85,0,0" Grid.Row="1" VerticalAlignment="Top" Height="20"></Button>-->
         <!--<Popup x:Name="popup1" StaysOpen="False" Placement="Mouse" MaxWidth="180"

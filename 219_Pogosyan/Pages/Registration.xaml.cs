@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _219_Pogosyan
+namespace _219_Pogosyan.Pages
 {
     /// <summary>
     /// Логика взаимодействия для Registration.xaml
@@ -63,38 +64,33 @@ namespace _219_Pogosyan
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Registration());
+            NavigationService.Navigate(new Page());
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Auth(Reg_TextBoxLogin.Text, Reg_PasswordBox.Password);
         }
 
-        //public static string GetHash(string password)
-        //{
-        //    using (var hash = SHA1.Create())
-        //    {
-        //        return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(password)).Select(x => x.ToString("X2")));
-        //    }
-        //}
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        public bool Auth(string login, string password)
         {
             int test = 0;
             if (string.IsNullOrEmpty(Reg_TextBoxFIO.Text) || string.IsNullOrEmpty(Reg_TextBoxLogin.Text) || string.IsNullOrEmpty(Reg_PasswordBox.Password) || string.IsNullOrEmpty(Reg_RepeatPasswordBox.Password) || string.IsNullOrEmpty(CmbRole.Text))
             {
-                MessageBox.Show("something is empty");
+                MessageBox.Show("Пусто");
                 test++;
             }
 
-            //using (var db_test = new Entities())
-            //{
-            //    var user = db_test.User.AsNoTracking().FirstOrDefault(u => u.Login == Reg_TextBoxLogin.Text);
+            using (var db = new TRPOLIBRARYEntities1())
+            {
+                var user = db.User.AsNoTracking().FirstOrDefault(u => u.Login == Reg_TextBoxLogin.Text);
 
-            //    if (user != null)
-            //    {
-            //        MessageBox.Show("there is already such a user");
-            //        test++;
-            //        return;
-            //    }
-
-            //}
+                if (user != null)
+                {
+                    MessageBox.Show("Такой пользователь уже существует");
+                    test++;
+                    return false;
+                }
+            }
 
             if (Reg_PasswordBox.Password.Length >= 6)
             {
@@ -126,38 +122,33 @@ namespace _219_Pogosyan
                 }
                 if (en && symbol && number) // проверяем соответствие
                 {
+                    if (Reg_PasswordBox.Password == Reg_RepeatPasswordBox.Password) // проверка на совпадение паролей
+                    {
+                        TRPOLIBRARYEntities1 db = new TRPOLIBRARYEntities1();
+                        User userObject = new User
+                        {
+                            Login = Reg_TextBoxLogin.Text,
+                            Password = hashirovanie.GetHash(Reg_PasswordBox.Password),
+                            Role = CmbRole.Text
+                        };
+                        db.User.Add(userObject);
+                        db.SaveChanges();
+                        MessageBox.Show("Пользователь зарегистрирован");
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пароли не совпадают");
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("пароль слишком короткий, минимум 6 символов");
+                MessageBox.Show("Пароль слишком короткий, минимум 6 символов");
                 test++;
 
             }
-
-            if (Reg_PasswordBox.Password == Reg_RepeatPasswordBox.Password) // проверка на совпадение паролей
-            {
-                MessageBox.Show("Пользователь зарегистрирован");
-            }
-            else
-            {
-                MessageBox.Show("Пароли не совподают");
-                test++;
-            }
-
-            //if (test == 0)
-            //{
-            //    Entities db = new Entities();
-            //    User userObject = new User
-            //    {
-            //        Full_name = Reg_TextBoxFIO.Text,
-            //        Login = Reg_TextBoxLogin.Text,
-            //        Password = GetHash(Reg_PasswordBox.Password),
-            //        Role = CmbRole.Text
-            //    };
-            //    db.User.Add(userObject);
-            //    db.SaveChanges();
-            //}
+            return false;
         }
     }
 }

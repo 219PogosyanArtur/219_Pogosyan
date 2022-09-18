@@ -13,10 +13,10 @@ namespace _219_Pogosyan
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class TRPOLIBRARYEntities1 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public TRPOLIBRARYEntities1()
+            : base("name=TRPOLIBRARYEntities1")
         {
         }
     

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище TRModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище TRPOLIBRARYModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Area_Of_Expertise">
           <Key>
             <PropertyRef Name="ID" />
@@ -74,9 +74,10 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Login" Type="nchar" MaxLength="100" Nullable="false" />
-          <Property Name="Password" Type="nchar" MaxLength="100" Nullable="false" />
-          <Property Name="Role" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Books_Area_Of_Expertise">
           <End Role="Area_Of_Expertise" Type="Self.Area_Of_Expertise" Multiplicity="1" />
@@ -126,7 +127,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище TRModelContainer">
+        <EntityContainer Name="Хранилище TRPOLIBRARYModelContainer">
           <EntitySet Name="Area_Of_Expertise" EntityType="Self.Area_Of_Expertise" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Instances" EntityType="Self.Instances" Schema="dbo" store:Type="Tables" />
@@ -155,7 +156,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="TRPOLIBRARYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Area_Of_Expertise">
           <Key>
             <PropertyRef Name="ID" />
@@ -233,9 +234,10 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Role" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <Association Name="FK_Books_Area_Of_Expertise">
           <End Role="Area_Of_Expertise" Type="Self.Area_Of_Expertise" Multiplicity="1" />
@@ -285,7 +287,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TRPOLIBRARYEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Area_Of_Expertise" EntityType="Self.Area_Of_Expertise" />
           <EntitySet Name="Books" EntityType="Self.Books" />
           <EntitySet Name="Instances" EntityType="Self.Instances" />
@@ -315,9 +317,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище TRModelContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TRPOLIBRARYModelContainer" CdmEntityContainer="TRPOLIBRARYEntities1">
           <EntitySetMapping Name="Area_Of_Expertise">
-            <EntityTypeMapping TypeName="TRModel.Area_Of_Expertise">
+            <EntityTypeMapping TypeName="TRPOLIBRARYModel.Area_Of_Expertise">
               <MappingFragment StoreEntitySet="Area_Of_Expertise">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Knowledge_area_number" ColumnName="Knowledge_area_number" />
@@ -326,7 +328,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Books">
-            <EntityTypeMapping TypeName="TRModel.Books">
+            <EntityTypeMapping TypeName="TRPOLIBRARYModel.Books">
               <MappingFragment StoreEntitySet="Books">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ISBN" ColumnName="ISBN" />
@@ -341,7 +343,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Instances">
-            <EntityTypeMapping TypeName="TRModel.Instances">
+            <EntityTypeMapping TypeName="TRPOLIBRARYModel.Instances">
               <MappingFragment StoreEntitySet="Instances">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Inventory_number" ColumnName="Inventory_number" />
@@ -350,7 +352,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Issuance_of_books">
-            <EntityTypeMapping TypeName="TRModel.Issuance_of_books">
+            <EntityTypeMapping TypeName="TRPOLIBRARYModel.Issuance_of_books">
               <MappingFragment StoreEntitySet="Issuance_of_books">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Date_of_issue" ColumnName="Date_of_issue" />
@@ -360,7 +362,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Student">
-            <EntityTypeMapping TypeName="TRModel.Student">
+            <EntityTypeMapping TypeName="TRPOLIBRARYModel.Student">
               <MappingFragment StoreEntitySet="Student">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="School_ticket_number" ColumnName="School_ticket_number" />
@@ -376,7 +378,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="TRModel.sysdiagrams">
+            <EntityTypeMapping TypeName="TRPOLIBRARYModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -387,11 +389,12 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="TRModel.User">
+            <EntityTypeMapping TypeName="TRPOLIBRARYModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
               </MappingFragment>
             </EntityTypeMapping>
